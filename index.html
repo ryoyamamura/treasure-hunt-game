@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ランダムコンテンツ</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif; /* ポップなフォント */
+            text-align: center; /* ページ内のテキストを中央に配置 */
+        }
+        
+        h1 {
+            color: blue; /* タイトルの色を青に設定 */
+        }
+        
+        #content {
+            font-size: 24px; /* テキストのフォントサイズを大きく */
+            margin: 20px auto; /* テキストを中央に配置 */
+            width: 80%; /* テキストの幅を80%に設定 */
+            background-color: #f0f0f0; /* テキストの背景色を灰色に設定 */
+            padding: 10px; /* テキストの周りに余白を設定 */
+            border-radius: 10px; /* テキストボックスに角丸を設定 */
+        }
+        
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            width: 80%;
+        }
+        
+        .button-container button {
+            font-size: 18px; /* ボタンのフォントサイズを大きく */
+            padding: 10px 20px; /* ボタンの余白を設定 */
+            background-color: #ff6699; /* ボタンの背景色をピンクに設定 */
+            color: white; /* ボタンの文字色を白に設定 */
+            border: none; /* ボーダーをなしに設定 */
+            border-radius: 5px; /* ボタンに角丸を設定 */
+            cursor: pointer; /* ホバー時にポインターを表示 */
+        }
+        
+        .button-container button:hover {
+            background-color: #ff3366; /* ホバー時の背景色を変更 */
+        }
+    </style>
+</head>
+<body>
+    <h1>ランダムコンテンツ</h1>
+    
+    <p id="content">ここにコンテンツが表示されます。</p>
+    
+    <div class="button-container" id="buttonContainer">
+        <!-- ボタンはスクリプトで生成 -->
+    </div>
+    
+    <script>
+        // ランダムなコンテンツのリスト
+        var contentList = ["コンテンツ1", "コンテンツ2", "コンテンツ3", "コンテンツ4", "コンテンツ5"];
+        
+        // ボタンの数
+        var buttonCount = 16;
+        
+        // ボタンのラベル
+        var buttonLabels = ["りんご", "ごりら", "らっぱ", "ぱんだ", "だちょう", "うみ", "みかん", "かんづめ", "めだか", "からす", "すいか", "かめ", "め", "めんたいこ", "こども", "もぐら"];
+        
+        // シャッフルする関数
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        // ページ読み込み時にコンテンツとボタンをシャッフル
+        shuffleArray(contentList);
+        shuffleArray(buttonLabels);
+        
+        // ランダムなコンテンツのインデックスを追跡する変数
+        var currentIndex = 0;
+        
+        // ページ読み込み時に初回のコンテンツとボタンを表示
+        displayRandomContent();
+        
+        // ランダムなコンテンツを表示する関数
+        function displayRandomContent() {
+            if (currentIndex < contentList.length) {
+                var randomContent = contentList[currentIndex];
+                document.getElementById("content").innerHTML = randomContent;
+                currentIndex++;
+            } else {
+                document.getElementById("content").innerHTML = "おめでとう！";
+                // すべてのコンテンツが表示された後にcurrentIndexをリセット
+                // currentIndex = 0;
+            }
+        }
+        
+        // ページ読み込み時にボタンを生成
+        window.onload = function() {
+            var buttonContainer = document.getElementById("buttonContainer");
+            for (var i = 0; i < buttonCount; i++) {
+                var button = document.createElement("button");
+                button.textContent = buttonLabels[i];
+                button.onclick = displayRandomContent;
+                buttonContainer.appendChild(button);
+            }
+        };
+    </script>
+</body>
+</html>
