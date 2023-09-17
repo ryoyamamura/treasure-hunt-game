@@ -46,7 +46,7 @@
     </style>
 </head>
 <body>
-    <h1>ランダムコンテンツ</h1>
+    // <h1>ランダムコンテンツ</h1>
     
     <p id="content">ここにコンテンツが表示されます。</p>
     
@@ -56,7 +56,7 @@
     
     <script>
         // ランダムなコンテンツのリスト
-        var contentList = ["コンテンツ1", "コンテンツ2", "コンテンツ3", "コンテンツ4", "コンテンツ5"];
+        var contentList = ["きょうりゅうずかんのした🦖", "こんちゅうずかんのした🐞", "おどうぐばこ🦞", "プーさんのぬいぐるみ🐻", "ベッドのうえ🛌", "げんかん👡", "テレビのよこ📺", "もみちゃんのへやのかべ🧱", "すべりだい🏞", "てをあらうところ✋", "おふろのなか🛁", "トイレのなか🚽", "れいぞうこ🍅", "シルバニア🐰", "パパのおしり🙎", "ガチャガチャのなか🪁"];
         
         // ボタンの数
         var buttonCount = 16;
@@ -84,7 +84,7 @@
         
         // ランダムなコンテンツを表示する関数
         function displayRandomContent() {
-            if (currentIndex < contentList.length) {
+            if (currentIndex < contentList.length - 6) {
                 var randomContent = contentList[currentIndex];
                 document.getElementById("content").innerHTML = randomContent;
                 currentIndex++;
