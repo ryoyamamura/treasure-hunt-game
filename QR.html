@@ -27,12 +27,6 @@
     <div id="image-container">
         <img id="random-image" src="" alt="Random Image">
     </div>
-
-    <!-- 音楽を再生するための <audio> 要素 -->
-    <audio id="music" controls>
-        <source src="music/screem.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
     
     <script>
         var imagePaths = [
@@ -71,14 +65,6 @@
         // ページをリロードするたびに新しいランダム画像を表示
         window.addEventListener('load', displayRandomImage);
 
-        // 音楽を再生するための <audio> 要素を取得
-        var audio = document.getElementById("music");
-        
-        // 1秒後に音楽を再生
-        setTimeout(function() {
-            audio.play();
-        }, 1000); // 1000ミリ秒（1秒）
-        
     </script>
 </body>
 </html>
