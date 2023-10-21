@@ -87,12 +87,12 @@
         
         // ランダムなコンテンツを表示する関数
         function displayRandomContent() {
-            if (currentIndex < contentList.length - 6) {
+            if (currentIndex < contentList.length - 2) {
                 var randomContent = contentList[currentIndex];
                 document.getElementById("content").innerHTML = randomContent;
                 currentIndex++;
             } else {
-                document.getElementById("content").innerHTML = "✨たからものはベッドのうえにあるよ！✨";
+                document.getElementById("content").innerHTML = "✨たからものはお洋服のタンスの中にあるよ！✨";
                 // すべてのコンテンツが表示された後にcurrentIndexをリセット
                 // currentIndex = 0;
             }
