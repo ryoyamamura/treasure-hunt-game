@@ -58,7 +58,8 @@
     
     <script>
         // ランダムなコンテンツのリスト
-        var contentList = ["きょうりゅうずかんのした🦖", "こんちゅうずかんのした🐞", "おどうぐばこ🦞", "プーさんのかん🐻", "パパのベッド🛌", "げんかん👡", "テレビのだい📺", "もみちゃんのへやのかべ🧱", "もみちゃんのキッチン🔪", "ほんだな📕", "もみちゃんのあおのだい🔷", "ビーズいれ🧿", "れいぞうこ🍅", "シルバニア🐰", "ピアノ🎹", "ガチャガチャのなか🪁"];
+        var contentList = ["きょうりゅうずかんのした🦖", "こんちゅうずかんのした🐞", "おどうぐばこ🦞", "プーさんのかん🐻", "ベッド🛌", "げんかん👡", "テレビのだい📺", "もみちゃんのへやのかべ🧱", "もみちゃんのキッチン🔪", "パパのほんだな📕", "もみちゃんのあおのだい🔷", "ビーズいれ🧿", "れいぞうこ🍅", "シルバニア🐰", "ピアノ🎹", "トランプのうら🃏"];
+        var GoalcontentList = {"✨たからものは おようふくの タンスのなか にあるよ！✨", "✨たからものは バウンサーのした にあるよ！✨", "✨たからものは もみちゃんの つくえの した にあるよ！✨", "✨たからものは テレビのうしろ にあるよ！✨"}
         
         // ボタンの数
         var buttonCount = 25;
@@ -92,7 +93,9 @@
                 document.getElementById("content").innerHTML = randomContent;
                 currentIndex++;
             } else {
-                document.getElementById("content").innerHTML = "✨たからものはお洋服のタンスの中にあるよ！✨";
+                var randomIndex = Math.floor(Math.random() * GoalcontentList.length);
+                var Goalcontent = GoalcontentList[randomIndex];
+                document.getElementById("content").innerHTML = Goalcontent;
                 // すべてのコンテンツが表示された後にcurrentIndexをリセット
                 // currentIndex = 0;
             }
